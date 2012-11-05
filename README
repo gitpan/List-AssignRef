@@ -51,6 +51,14 @@ DESCRIPTION
 
             use List::AssignRef deref => { -as => 'dereference' };
 
+LEGACY PERL SUPPORT
+    The examples above rely on a parsing improvement in Perl 5.14. Although
+    this module does support earlier versions of Perl (5.6 and above), prior
+    to 5.14 you may need to add additional parentheses:
+
+            (deref(my @staff), deref(my @managers))
+                    = part { $_->title =~ /Manager/ } @employees;
+
 BUGS
     Please report any bugs to
     <http://rt.cpan.org/Dist/Display.html?Queue=List-AssignRef>.
