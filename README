@@ -22,8 +22,8 @@ DESCRIPTION
 
     Well, in that simple case List::AssignRef is overkill.
 
-    However, what about cases when you have a function that returns a list
-    of arrayrefs, such as "part" from List::MoreUtils. For example:
+    However, what about cases when you have a function that returns a list of
+    arrayrefs, such as `part` from List::MoreUtils. For example:
 
             my ($staff, $managers) = part { $_->title =~ /Manager/ } @employees;
 
@@ -41,10 +41,10 @@ DESCRIPTION
 
     List::AssignRef exports exactly one function...
 
-    "deref ARRAY|HASH|SCALAR"
-        "deref" must be given a (non-reference) array, hash or scalar. It
-        acts as an lvalue, allowing a reference array, hash or scalar
-        respectively to be assigned to it.
+    `deref ARRAY|HASH|SCALAR`
+        `deref` must be given a (non-reference) array, hash or scalar. It acts
+        as an lvalue, allowing a reference array, hash or scalar respectively
+        to be assigned to it.
 
     This module uses Sub::Exporter which means that you can rename the
     exported function easily:
@@ -66,8 +66,8 @@ BUGS
 SEE ALSO
     List::Util, List::MoreUtils.
 
-    Ref::List is not dissimilar but without the prototype trickery and
-    lvalue stuff, so doesn't satisfy this module's use case.
+    Ref::List is not dissimilar but without the prototype trickery and lvalue
+    stuff, so doesn't satisfy this module's use case.
 
 AUTHOR
     Toby Inkster <tobyink@cpan.org>.
@@ -75,8 +75,8 @@ AUTHOR
 COPYRIGHT AND LICENCE
     This software is copyright (c) 2012 by Toby Inkster.
 
-    This is free software; you can redistribute it and/or modify it under
-    the same terms as the Perl 5 programming language system itself.
+    This is free software; you can redistribute it and/or modify it under the
+    same terms as the Perl 5 programming language system itself.
 
 DISCLAIMER OF WARRANTIES
     THIS PACKAGE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED
