@@ -46,7 +46,7 @@ DESCRIPTION
         as an lvalue, allowing a reference array, hash or scalar respectively
         to be assigned to it.
 
-    This module uses Sub::Exporter which means that you can rename the
+    This module uses Exporter::Shiny which means that you can rename the
     exported function easily:
 
             use List::AssignRef deref => { -as => 'dereference' };

@@ -7,7 +7,7 @@ my $meta = {
   "abstract"       => "assign an arrayref to an array sensibly",
   "author"         => ["Toby Inkster (TOBYINK) <tobyink\@cpan.org>"],
   "dynamic_config" => 0,
-  "generated_by"   => "Moose::Meta::Class::__ANON__::SERIAL::8 version , CPAN::Meta::Converter version 2.140640",
+  "generated_by"   => "Dist::Inkt::Profile::TOBYINK version 0.021, CPAN::Meta::Converter version 2.140640",
   "keywords"       => [],
   "license"        => ["perl_5"],
   "meta-spec"      => {
@@ -18,11 +18,13 @@ my $meta = {
   "no_index"       => { directory => ["eg", "examples", "inc", "t", "xt"] },
   "prereqs"        => {
                         configure => { requires => { "ExtUtils::MakeMaker" => 6.17 } },
-                        runtime => { requires => { "lvalue" => 0, "Sub::Exporter" => 0 } },
+                        runtime => {
+                          requires => { "Exporter::Shiny" => 0, "LV" => 0, "perl" => 5.006 },
+                        },
                         test => { requires => { "List::MoreUtils" => 0, "Test::More" => 0.61 } },
                       },
   "provides"       => {
-                        "List::AssignRef" => { file => "lib/List/AssignRef.pm", version => 0.003 },
+                        "List::AssignRef" => { file => "lib/List/AssignRef.pm", version => 0.004 },
                       },
   "release_status" => "stable",
   "resources"      => {
@@ -31,9 +33,14 @@ my $meta = {
                                         },
                         homepage     => "https://metacpan.org/release/List-AssignRef",
                         license      => ["http://dev.perl.org/licenses/"],
-                        X_identifier => "http://purl.org/NET/cpan-uri/dist/List-AssignRef/project",
+                        repository   => {
+                                          type => "git",
+                                          url  => "git://github.com/tobyink/p5-list-assignref.git",
+                                          web  => "https://github.com/tobyink/p5-list-assignref",
+                                        },
+                        x_identifier => "http://purl.org/NET/cpan-uri/dist/List-AssignRef/project",
                       },
-  "version"        => 0.003,
+  "version"        => 0.004,
 };
 
 my %dynamic_config;

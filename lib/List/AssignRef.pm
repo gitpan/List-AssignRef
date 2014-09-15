@@ -3,7 +3,7 @@ package List::AssignRef;
 use 5.006;
 use strict;
 use warnings;
-use lvalue;
+use LV qw( lvalue );
 use Carp qw( confess );
 use Scalar::Util qw( reftype );
 
@@ -20,15 +20,10 @@ use constant {
 
 BEGIN {
 	$List::AssignRef::AUTHORITY = 'cpan:TOBYINK';
-	$List::AssignRef::VERSION   = '0.003';
+	$List::AssignRef::VERSION   = '0.004';
 }
 
-use Sub::Exporter -setup => {
-	exports  => [qw( deref )],
-	groups   => {
-		default  => [qw( deref )],
-	},
-};
+use Exporter::Shiny our @EXPORT = qw( deref );
 
 sub _confessf
 {
@@ -39,13 +34,13 @@ sub _confessf
 sub deref (\[$@%]) :lvalue
 {
 	my $given = shift;
-	get {
+	lvalue get => sub {
 		reftype($given) eq SCALAR ? $$given :
 		reftype($given) eq ARRAY  ? @$given :
 		reftype($given) eq HASH   ? %$given :
 		_confessf(ERR_UNSUPPORTED, reftype($given));
-	}
-	set {
+	},
+	set => sub {
 		my $assign = shift;
 		reftype($given) eq reftype($assign)
 			or _confessf(ERR_MISMATCH, reftype($given), reftype($assign));
@@ -116,7 +111,7 @@ assigned to it.
 
 =back
 
-This module uses L<Sub::Exporter> which means that you can rename the
+This module uses L<Exporter::Shiny> which means that you can rename the
 exported function easily:
 
 	use List::AssignRef deref => { -as => 'dereference' };
